@@ -1,0 +1,25 @@
+# ─── Google Sheets ───────────────────────────────────────────────────────────
+# ID del spreadsheet (lo ves en la URL: /d/SPREADSHEET_ID/edit)
+SPREADSHEET_ID=your_spreadsheet_id_here
+
+# Nombre exacto de la hoja (pestaña)
+SHEET_NAME=Hoja1
+
+# ─── Google Service Account ───────────────────────────────────────────────────
+# Ruta al archivo JSON de la cuenta de servicio descargado de Google Cloud
+GOOGLE_SERVICE_ACCOUNT_KEY_PATH=./credentials/service-account.json
+
+# ─── SOAP Gestor Documental ───────────────────────────────────────────────────
+SOAP_ENDPOINT=https://tu-gestor-documental.com/ws/DocumentService
+SOAP_USERNAME=usuario_soap
+SOAP_PASSWORD=clave_soap
+
+# ─── Procesamiento ────────────────────────────────────────────────────────────
+# Cuántas filas procesar en paralelo (recomendado: 5-10 para no saturar SOAP)
+CONCURRENCY=5
+
+# Máximo reintentos por fila ante error SOAP
+MAX_RETRIES=3
+
+# Espera entre reintentos en ms (2000 = 2 segundos)
+RETRY_DELAY_MS=2000
