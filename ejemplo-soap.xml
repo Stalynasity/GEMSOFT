@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  EJEMPLO DE ENVELOPE SOAP — InsertarDocumento
+  ───────────────────────────────────────────────────────────────
+  Este archivo es solo referencia. El XML real se construye
+  dinámicamente en src/utils/xmlBuilder.js por cada fila.
+
+  Adapta:
+    • xmlns:doc  → namespace real de tu WSDL
+    • SOAPAction → la acción real de tu servicio
+    • Campos dentro de <doc:InsertarDocumento> según tu schema
+  ═══════════════════════════════════════════════════════════════
+-->
+<soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:doc="http://tu-gestor-documental.com/ws">
+
+  <soapenv:Header>
+    <doc:AuthHeader>
+      <doc:Username>usuario_soap</doc:Username>
+      <doc:Password>clave_soap</doc:Password>
+    </doc:AuthHeader>
+  </soapenv:Header>
+
+  <soapenv:Body>
+    <doc:InsertarDocumento>
+
+      <!-- Datos de identificación del ciudadano / expediente -->
+      <doc:Nombre>Juan Pérez López</doc:Nombre>
+      <doc:TipoIdentificacion>CC</doc:TipoIdentificacion>
+
+      <!-- Oficina de origen -->
+      <doc:Oficina>Agencia Norte</doc:Oficina>
+
+      <!-- Fecha en formato que acepte tu gestor, p.ej. DD/MM/YYYY o YYYY-MM-DD -->
+      <doc:FechaProceso>2024-07-15</doc:FechaProceso>
+
+      <!-- URL del archivo en Google Drive -->
+      <doc:UrlArchivo>https://drive.google.com/file/d/ABC123XYZ/view</doc:UrlArchivo>
+
+    </doc:InsertarDocumento>
+  </soapenv:Body>
+
+</soapenv:Envelope>
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  EJEMPLO DE RESPUESTA SOAP EXITOSA (lo que el servidor devuelve)
+  ═══════════════════════════════════════════════════════════════
+-->
+<!--
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <doc:InsertarDocumentoResponse xmlns:doc="http://tu-gestor-documental.com/ws">
+      <doc:resultado>OK</doc:resultado>
+      <doc:idDocumento>98765</doc:idDocumento>
+    </doc:InsertarDocumentoResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+-->
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  EJEMPLO DE RESPUESTA SOAP CON ERROR (SOAP Fault)
+  ═══════════════════════════════════════════════════════════════
+-->
+<!--
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>soapenv:Server</faultcode>
+      <faultstring>Documento duplicado: ya existe un registro con ese identificador</faultstring>
+      <detail>Error código 409 - DuplicateDocumentException</detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>
+-->

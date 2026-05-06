@@ -1,0 +1,18 @@
+{
+  "name": "documental-processor",
+  "version": "1.0.0",
+  "description": "Procesador masivo de filas Google Sheets hacia gestor documental SOAP",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0",
+    "axios": "^1.7.2",
+    "fast-xml-parser": "^4.4.0",
+    "winston": "^3.13.0",
+    "dotenv": "^16.4.5",
+    "p-limit": "^3.1.0"
+  }
+}
