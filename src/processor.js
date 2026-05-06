@@ -28,7 +28,7 @@ async function run() {
 
   // ── 1. Autenticar y leer sheet (1 llamada API) ─────────────────────────
   await sheetsService.init();
-  driveService.init(); // reutiliza la misma auth de sheetsService
+  driveService.init(); // reutiliza la misma auth de sheetsService1
   const rawRows = await sheetsService.readAllRows();
 
   // ── 2. Filtrar filas procesables ───────────────────────────────────────
